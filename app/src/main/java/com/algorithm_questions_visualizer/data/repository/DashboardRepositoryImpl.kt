@@ -1,4 +1,4 @@
-package com.heroes.data.repository
+package com.algorithm_questions_visualizer.data.repository
 
 import javax.inject.Inject
 

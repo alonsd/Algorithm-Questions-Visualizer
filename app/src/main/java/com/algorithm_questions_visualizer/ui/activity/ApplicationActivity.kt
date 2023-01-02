@@ -1,12 +1,12 @@
-package com.heroes.ui.activity
+package com.algorithm_questions_visualizer.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
-import com.heroes.core.extensions.setAqvContent
-import com.heroes.ui.screens.dashboard.screen.NavGraphs
+import com.algorithm_questions_visualizer.core.extensions.setAqvContent
+import com.algorithm_questions_visualizer.ui.screens.dashboard.screen.NavGraphs
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 

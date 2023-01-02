@@ -1,8 +1,8 @@
-package com.heroes.ui.screens.dashboard.viewmodel
+package com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heroes.data.repository.DashboardRepository
+import com.algorithm_questions_visualizer.data.repository.DashboardRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

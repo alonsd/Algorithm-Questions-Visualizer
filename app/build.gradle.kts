@@ -31,7 +31,7 @@ android {
 
 
     defaultConfig {
-        applicationId = "com.heroes"
+        applicationId = "com.algorithm.questions.visualizer"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -83,7 +83,6 @@ dependencies {
 
     //Compose
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.material:material:1.4.0-alpha03")
     implementation("androidx.compose.animation:animation:1.4.0-alpha03")
     implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
@@ -114,7 +113,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
     //Material
-    implementation("com.google.android.material:material:1.8.0-beta01")
+    implementation("androidx.compose.material3:material3:1.0.1")
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
@@ -124,13 +123,6 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    //Glide
-    implementation("com.github.bumptech.glide:glide:4.13.2")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.13.2")
-
-    //Picasso
-    implementation("com.squareup.picasso:picasso:2.71828")
-
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.44.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
@@ -139,9 +131,6 @@ dependencies {
     //Compose Destinations
     implementation("io.github.raamcosta.compose-destinations:animations-core:1.7.25-beta")
     ksp("io.github.raamcosta.compose-destinations:ksp:1.7.25-beta")
-
-    //Compose Shimmering
-    implementation("com.valentinilk.shimmer:compose-shimmer:1.0.3")
 
 }
 

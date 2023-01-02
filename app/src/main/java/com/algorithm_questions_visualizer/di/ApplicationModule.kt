@@ -1,4 +1,4 @@
-package com.heroes.di
+package com.algorithm_questions_visualizer.di
 
 import android.app.Application
 import android.content.Context
