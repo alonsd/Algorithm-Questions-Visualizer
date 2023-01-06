@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.algorithm_questions_visualizer.ui.screens.dashboard.state.data
 
 import androidx.compose.foundation.background
@@ -7,10 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -29,6 +28,14 @@ fun ProblemScreen(
     modifier: Modifier = Modifier,
     algorithmicProblem: AlgorithmicProblem
 ) {
+    TopAppBar(
+        title = {
+            Text(text = algorithmicProblem.title)
+        },
+        actions = {
+
+        })
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -58,6 +65,7 @@ fun ProblemScreen(
             )
         }
     }
+}
 }
 
 
