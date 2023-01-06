@@ -7,6 +7,9 @@
     <string name="problem_screen_question_title">%1$s. %2$s</string>
 
     <!--    ExampleItem-->
-    <string name="example_screen_title">Example %1$s:</string>
+    <string name="example_item_title">Example %1$s:</string>
+    <string name="example_item_input">Input: %1$s</string>
+    <string name="example_item_output">Output: %1$s</string>
+    <string name="example_item_explanation">Explanation: %1$s</string>
 
 </resources>

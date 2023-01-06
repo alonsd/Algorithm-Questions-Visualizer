@@ -81,6 +81,9 @@ dependencies {
     //AppCompat
     implementation("androidx.appcompat:appcompat:1.5.1")
 
+    //System UI
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
+
     //Compose
     implementation("androidx.activity:activity-compose:1.6.1")
     implementation("androidx.compose.animation:animation:1.4.0-alpha03")

@@ -2,6 +2,7 @@ package com.algorithm_questions_visualizer.ui.screens.dashboard.state.data
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -35,27 +36,30 @@ fun ProblemScreen(
             .padding(16.dp)
             .verticalScroll(rememberScrollState())
     ) {
-            Text(
-                text = stringResource(
-                    id = R.string.problem_screen_question_title,
-                    algorithmicProblem.questionNumber,
-                    algorithmicProblem.title
-                ),
-                fontSize = 20.sp,
-                color = MaterialTheme.colorScheme.onBackground
+        Text(
+            text = stringResource(
+                id = R.string.problem_screen_question_title,
+                algorithmicProblem.questionNumber,
+                algorithmicProblem.title
+            ),
+            fontSize = 20.sp,
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Text(
+            text = algorithmicProblem.description,
+            modifier = Modifier.padding(top = 16.dp),
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Spacer(modifier = Modifier.padding(top = 32.dp))
+        for (i in 0 until algorithmicProblem.examples.size) {
+            ExampleItem(
+                example = algorithmicProblem.examples[i],
+                exampleNumber = i
             )
-            Text(
-                text = algorithmicProblem.description,
-                modifier = Modifier.padding(top = 16.dp),
-                color = MaterialTheme.colorScheme.onBackground
-            )
-//            LazyColumn {
-//                itemsIndexed(algorithmicProblem.examples) { index, item ->
-//
-//                }
-//            }
+        }
     }
 }
+
 
 @Preview
 @Composable
