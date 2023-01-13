@@ -1,19 +1,13 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
-package com.algorithm_questions_visualizer.ui.screens.dashboard.state.data
+package com.algorithm_questions_visualizer.ui.screens.problem.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,21 +15,12 @@ import androidx.compose.ui.unit.sp
 import com.algorithm_questions_visualizer.R
 import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
-import com.algorithm_questions_visualizer.ui.theme.AqvTheme
 
 @Composable
-fun ProblemScreen(
+fun ProblemDescription(
     modifier: Modifier = Modifier,
     algorithmicProblem: AlgorithmicProblem
 ) {
-    TopAppBar(
-        title = {
-            Text(text = algorithmicProblem.title)
-        },
-        actions = {
-
-        })
-
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -66,15 +51,9 @@ fun ProblemScreen(
         }
     }
 }
-}
 
-
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun ProblemScreenPreview() {
-    AqvTheme {
-        ProblemScreen(
-            algorithmicProblem = leetcode1
-        )
-    }
+private fun ProblemDescriptionPreview() {
+    ProblemDescription(algorithmicProblem = leetcode1)
 }

@@ -1,4 +1,4 @@
-package com.algorithm_questions_visualizer.ui.screens.dashboard.state.data
+package com.algorithm_questions_visualizer.ui.screens.problem.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

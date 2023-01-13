@@ -90,6 +90,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha03")
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.2.2")
