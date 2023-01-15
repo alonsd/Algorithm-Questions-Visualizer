@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.sp
 import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.body.ProblemDescription
+import com.algorithm_questions_visualizer.ui.screens.problem.screen.body.ProblemSolution
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.top_bar.ProblemScreenTabs
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.top_bar.ProblemScreenTopBar
 import com.algorithm_questions_visualizer.ui.theme.AqvTheme
@@ -60,17 +61,14 @@ fun ProblemScreen(
                     )
                 }
                 ProblemScreenTabs.SOLUTION.ordinal -> {
-                    Text(
-                        modifier = Modifier.fillMaxSize(),
-                        text = "Solution",
-                        color = Color.White,
-                        fontSize = 36.sp
-                    )
+                    ProblemSolution(algorithmicProblem.solution)
                 }
             }
         }
     }
 }
+
+
 
 
 @Preview

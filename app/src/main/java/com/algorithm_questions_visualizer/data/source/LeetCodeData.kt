@@ -12,19 +12,11 @@ val leetcode1 = AlgorithmicProblem(
             "You can return the answer in any order.",
     solution = "fun twoSum(numbers: IntArray, target: Int): IntArray? {\n" +
             "        val map = hashMapOf<Int, Int>()\n" +
-            "        numbers.forEachIndexed { index, value -> // 1, 7\n" +
-            "            /* In order to save each value we iterated through, we decrease from the target the current\n" +
-            "             value, giving us the remaining value to get the result.\n" +
-            "             * */\n" +
-            "            val complement = target - value // 9 - 7 = 2\n" +
-            "            /*We ask if the map contains the current complement key,\n" +
-            "             which is the value of a possible previous iteration */\n" +
-            "            if (map.containsKey(complement)) // 2\n" +
-            "                //We pull the index of the current complement\n" +
-            "                //and put it with the index of the current iteration\n" +
-            "                return intArrayOf(map[complement]!!, index) // 2:1\n" +
-            "            //We store into the map each value:index,\n" +
-            "            map[value] = index // 2:0,\n" +
+            "        numbers.forEachIndexed { index, value ->\n" +
+            "            val complement = target - value\n" +
+            "            if (map.containsKey(complement))\n" +
+            "                return intArrayOf(map[complement]!!, index) \n" +
+            "            map[value] = index \n" +
             "        }\n" +
             "        return null\n" +
             "    }",
