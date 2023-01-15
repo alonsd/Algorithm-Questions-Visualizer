@@ -17,17 +17,18 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import kotlinx.coroutines.launch
 import com.google.accompanist.pager.*
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
-fun ProblemScreenTopBar(pagerState: PagerState = rememberPagerState()) {
-    val coroutineScope = rememberCoroutineScope()
+fun ProblemScreenTopBar(
+    currentPage: Int,
+    onTabClicked: (index: Int) -> Unit
+) {
 
     Column {
         TabRow(
-            selectedTabIndex = pagerState.currentPage,
+            selectedTabIndex = currentPage,
             indicator = @Composable { tabPositions ->
                 TabRowDefaults.Indicator(
-                    Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage]),
+                    Modifier.tabIndicatorOffset(tabPositions[currentPage]),
                     color = Color.White
                 )
             }
@@ -35,12 +36,8 @@ fun ProblemScreenTopBar(pagerState: PagerState = rememberPagerState()) {
             ProblemScreenTabs.values().forEachIndexed { index, tabRowItem ->
                 Tab(
                     modifier = Modifier.padding(16.dp),
-                    selected = pagerState.currentPage == index,
-                    onClick = {
-                        coroutineScope.launch {
-                            pagerState.animateScrollToPage(index)
-                        }
-                    },
+                    selected = currentPage == index,
+                    onClick = { onTabClicked(index) },
                     content = {
                         Text(
                             text = tabRowItem.value,
@@ -55,9 +52,8 @@ fun ProblemScreenTopBar(pagerState: PagerState = rememberPagerState()) {
 
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Preview(showBackground = true)
 @Composable
 fun ProblemScreenTopBarPreview() {
-    ProblemScreenTopBar()
+    ProblemScreenTopBar(1) {}
 }
