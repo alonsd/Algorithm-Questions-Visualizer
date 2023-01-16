@@ -10,15 +10,15 @@ val leetcode1 = AlgorithmicProblem(
             "You may assume that each input would have exactly one solution, and you may not use the same element twice.\n" +
             "\n" +
             "You can return the answer in any order.",
-    solution = "fun twoSum(numbers: IntArray, target: Int): IntArray? {\n" +
-            "        val map = hashMapOf<Int, Int>()\n" +
-            "        numbers.forEachIndexed { index, value ->\n" +
-            "            val complement = target - value\n" +
-            "            if (map.containsKey(complement))\n" +
+    solution = "fun twoSum(numbers: IntArray, target: Int): IntArray? { \n" +
+            "        val map = hashMapOf<Int, Int>() \n" +
+            "        numbers.forEachIndexed { index, value -> \n" +
+            "            val complement = target - value \n" +
+            "            if (map.containsKey(complement)) \n" +
             "                return intArrayOf(map[complement]!!, index) \n" +
             "            map[value] = index \n" +
-            "        }\n" +
-            "        return null\n" +
+            "        } \n" +
+            "        return null \n" +
             "    }",
     examples = listOf(
         AlgorithmicProblem.Example(
