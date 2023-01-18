@@ -1,9 +1,9 @@
 package com.algorithm_questions_visualizer.ui.screens.problem.screen.body
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -38,12 +38,10 @@ fun ProblemSolution(solution: String) {
             .background(AndroidStudioBlackBackground)
             .padding(32.dp),
         text = buildAnnotatedString {
+            this.appendln()
             val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",")
             val kotlinExtensions = mutableListOf("forEachIndexed")
             solution.split(" ", ".").forEach { string ->
-//                val splitByDot = string.split(".")
-//                val extensionWord = splitByDot.find { kotlinExtensions.contains(it) }
-                Log.d("defaultAppDebuger", "string: $string")
                 if (kotlinKeywords.contains(string)) {
                     withStyle(
                         style = SpanStyle(
@@ -55,7 +53,8 @@ fun ProblemSolution(solution: String) {
                     }
                     return@forEach
                 } else if (kotlinExtensions.contains(string)) {
-                    append(".")
+                    appendInlineContent(" ", ".")
+//                    append(".")
                     withStyle(
                         style = SpanStyle(
                             color = Yellow

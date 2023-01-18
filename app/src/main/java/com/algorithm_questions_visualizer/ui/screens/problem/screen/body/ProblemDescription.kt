@@ -29,15 +29,6 @@ fun ProblemDescription(
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = stringResource(
-                id = R.string.problem_screen_question_title,
-                algorithmicProblem.questionNumber,
-                algorithmicProblem.title
-            ),
-            fontSize = 20.sp,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        Text(
             text = algorithmicProblem.description,
             modifier = Modifier.padding(top = 16.dp),
             color = MaterialTheme.colorScheme.onBackground

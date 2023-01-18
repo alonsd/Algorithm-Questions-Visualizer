@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +23,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun ProblemScreen(
     modifier: Modifier = Modifier,
@@ -35,7 +36,11 @@ fun ProblemScreen(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            ProblemScreenTopBar(pagerState.currentPage) { index ->
+            ProblemScreenTopBar(
+                algorithmicProblem.questionNumber.toString(),
+                algorithmicProblem.title,
+                pagerState.currentPage
+            ) { index ->
                 coroutineScope.launch {
                     pagerState.animateScrollToPage(index)
                 }
@@ -53,12 +58,17 @@ fun ProblemScreen(
                     )
                 }
                 ProblemScreenTabs.EXPLANATION.ordinal -> {
-                    Text(
+                    Column(
                         modifier = Modifier.fillMaxSize(),
-                        text = "Explanation",
-                        color = Color.White,
-                        fontSize = 36.sp
-                    )
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "Explanation",
+                            color = Color.White,
+                            fontSize = 36.sp
+                        )
+                    }
                 }
                 ProblemScreenTabs.SOLUTION.ordinal -> {
                     ProblemSolution(algorithmicProblem.solution)
@@ -67,8 +77,6 @@ fun ProblemScreen(
         }
     }
 }
-
-
 
 
 @Preview
