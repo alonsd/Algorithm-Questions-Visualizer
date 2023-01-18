@@ -14,6 +14,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.algorithm_questions_visualizer.core.ui.compose.AutoResizedText
 import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.ui.theme.AndroidStudioBlackBackground
 import com.algorithm_questions_visualizer.ui.theme.Orange
@@ -32,13 +33,12 @@ fun twoSum(numbers: IntArray, target: Int): IntArray? {
 
 @Composable
 fun ProblemSolution(solution: String) {
-    Text(
+    AutoResizedText(
         modifier = Modifier
             .fillMaxSize()
             .background(AndroidStudioBlackBackground)
             .padding(32.dp),
         text = buildAnnotatedString {
-            this.appendln()
             val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",")
             val kotlinExtensions = mutableListOf("forEachIndexed")
             solution.split(" ", ".").forEach { string ->
@@ -70,7 +70,6 @@ fun ProblemSolution(solution: String) {
             }
         },
         color = Color.White,
-        fontSize = 16.sp
     )
 }
 

@@ -47,19 +47,20 @@ fun ProblemScreenTopBar(
                     color = Color.White
                 )
             },
-            containerColor = Color.Transparent
+            containerColor = Color.Transparent,
         ) {
             ProblemScreenTabs.values().forEachIndexed { index, tabRowItem ->
                 Tab(
-                    modifier = Modifier
-                        .padding(16.dp),
                     selected = currentPage == index,
+                    selectedContentColor = Color.White,
                     onClick = { onTabClicked(index) },
                     content = {
                         Text(
+                            modifier = Modifier.padding(16.dp),
                             text = tabRowItem.value,
                             fontSize = 14.sp,
-                            color = Color.White
+                            color = Color.White,
+                            maxLines = 1
                         )
                     }
                 )
