@@ -19,7 +19,8 @@ import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 @Composable
 fun ProblemDescription(
     modifier: Modifier = Modifier,
-    algorithmicProblem: AlgorithmicProblem
+    description: String,
+    examples: List<AlgorithmicProblem.Example>,
 ) {
     Column(
         modifier = modifier
@@ -29,14 +30,14 @@ fun ProblemDescription(
             .verticalScroll(rememberScrollState())
     ) {
         Text(
-            text = algorithmicProblem.description,
+            text = description,
             modifier = Modifier.padding(top = 16.dp),
             color = MaterialTheme.colorScheme.onBackground
         )
         Spacer(modifier = Modifier.padding(top = 32.dp))
-        for (i in 0 until algorithmicProblem.examples.size) {
+        for (i in examples.indices) {
             ExampleItem(
-                example = algorithmicProblem.examples[i],
+                example = examples[i],
                 exampleNumber = i
             )
         }
@@ -46,5 +47,8 @@ fun ProblemDescription(
 @Preview(showBackground = true)
 @Composable
 private fun ProblemDescriptionPreview() {
-    ProblemDescription(algorithmicProblem = leetcode1)
+    ProblemDescription(
+        description = leetcode1.description,
+        examples = leetcode1.examples
+    )
 }

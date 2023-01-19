@@ -6,14 +6,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.body.ProblemDescription
+import com.algorithm_questions_visualizer.ui.screens.problem.screen.body.ProblemExplanation
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.body.ProblemSolution
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.top_bar.ProblemScreenTabs
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.top_bar.ProblemScreenTopBar
@@ -54,24 +52,15 @@ fun ProblemScreen(
             when (page) {
                 ProblemScreenTabs.DESCRIPTION.ordinal -> {
                     ProblemDescription(
-                        algorithmicProblem = algorithmicProblem
+                        description = algorithmicProblem.description,
+                        examples = algorithmicProblem.examples
                     )
                 }
                 ProblemScreenTabs.EXPLANATION.ordinal -> {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = "Explanation",
-                            color = Color.White,
-                            fontSize = 36.sp
-                        )
-                    }
+                    ProblemExplanation(algorithmicProblem.solution.explanation)
                 }
                 ProblemScreenTabs.SOLUTION.ordinal -> {
-                    ProblemSolution(algorithmicProblem.solution)
+                    ProblemSolution(algorithmicProblem.solution.solutionCode)
                 }
             }
         }

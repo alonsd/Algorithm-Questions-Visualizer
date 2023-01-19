@@ -76,5 +76,5 @@ fun ProblemSolution(solution: String) {
 @Preview(showBackground = true)
 @Composable
 fun ProblemSolutionPreview() {
-    ProblemSolution(solution = leetcode1.solution)
+    ProblemSolution(solution = leetcode1.solution.solutionCode)
 }

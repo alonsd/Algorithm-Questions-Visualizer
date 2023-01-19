@@ -2,6 +2,7 @@ package com.algorithm_questions_visualizer.ui.screens.dashboard.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.algorithm_questions_visualizer.core.extensions.SingleTimeLaunchedEffect
 import com.algorithm_questions_visualizer.data.source.leetcode1
@@ -23,7 +24,7 @@ fun DashboardScreen(
     val uiController = rememberSystemUiController()
 
     SingleTimeLaunchedEffect {
-        uiController.isStatusBarVisible = false
+        uiController.setSystemBarsColor(color = Color.Black)
     }
 
     ProblemScreen(algorithmicProblem = leetcode1)

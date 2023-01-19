@@ -10,16 +10,29 @@ val leetcode1 = AlgorithmicProblem(
             "You may assume that each input would have exactly one solution, and you may not use the same element twice.\n" +
             "\n" +
             "You can return the answer in any order.",
-    solution = "fun twoSum(numbers: IntArray, target: Int): IntArray? { \n" +
-            "        val map = hashMapOf<Int, Int>() \n" +
-            "        numbers.forEachIndexed { index, value -> \n" +
-            "            val complement = target - value \n" +
-            "            if (map.containsKey(complement)) \n" +
-            "                return intArrayOf(map[complement]!!, index) \n" +
-            "            map[value] = index \n" +
-            "        } \n" +
-            "        return null \n" +
-            "    }",
+    solution = AlgorithmicProblem.Solution(
+        solutionCode = "fun twoSum(numbers: IntArray, target: Int): IntArray? { \n" +
+                "        val map = hashMapOf<Int, Int>() \n" +
+                "        numbers.forEachIndexed { index, value -> \n" +
+                "            val complement = target - value \n" +
+                "            if (map.containsKey(complement)) \n" +
+                "                return intArrayOf(map[complement]!!, index) \n" +
+                "            map[value] = index \n" +
+                "        } \n" +
+                "        return null \n" +
+                "    }",
+        explanation = "Approach 3: One-pass Hash Table \n" +
+                "\n" +
+                "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
+                "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
+                "If it exists, we have found a solution and return the indices immediately. " +
+                "\n" +
+                "Complexity Analysis \n" +
+                "\n" +
+                "Time complexity: O(n)O(n)O(n). We traverse the list containing nnn elements only once. Each lookup in the table costs only O(1)O(1)O(1) time.\n" +
+                "\n" +
+                "Space complexity: O(n)O(n)O(n). The extra space required depends on the number of items stored in the hash table, which stores at most nnn elements."
+    ),
     examples = listOf(
         AlgorithmicProblem.Example(
             input = "nums = [2,7,11,15], target = 9",
