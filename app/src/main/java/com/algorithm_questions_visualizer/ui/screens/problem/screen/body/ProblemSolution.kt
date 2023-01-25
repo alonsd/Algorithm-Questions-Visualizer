@@ -1,10 +1,8 @@
 package com.algorithm_questions_visualizer.ui.screens.problem.screen.body
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.appendInlineContent
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,10 +11,9 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.algorithm_questions_visualizer.core.ui.compose.AutoResizedText
 import com.algorithm_questions_visualizer.data.source.leetcode1
-import com.algorithm_questions_visualizer.ui.theme.AndroidStudioBlackBackground
+import com.algorithm_questions_visualizer.ui.theme.AndroidStudioCodeBackground
 import com.algorithm_questions_visualizer.ui.theme.Orange
 import com.algorithm_questions_visualizer.ui.theme.Yellow
 
@@ -33,10 +30,17 @@ fun twoSum(numbers: IntArray, target: Int): IntArray? {
 
 @Composable
 fun ProblemSolution(solution: String) {
+    Column(modifier = Modifier
+        .width(32.dp)
+        .fillMaxHeight()) {
+        for (i in 0..200) {
+
+        }
+    }
     AutoResizedText(
         modifier = Modifier
             .fillMaxSize()
-            .background(AndroidStudioBlackBackground)
+            .background(AndroidStudioCodeBackground)
             .padding(32.dp),
         text = buildAnnotatedString {
             val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",")
@@ -54,7 +58,6 @@ fun ProblemSolution(solution: String) {
                     return@forEach
                 } else if (kotlinExtensions.contains(string)) {
                     appendInlineContent(" ", ".")
-//                    append(".")
                     withStyle(
                         style = SpanStyle(
                             color = Yellow
