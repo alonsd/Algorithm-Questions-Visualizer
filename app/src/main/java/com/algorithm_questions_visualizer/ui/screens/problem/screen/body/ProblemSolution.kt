@@ -17,24 +17,13 @@ import com.algorithm_questions_visualizer.ui.theme.AndroidStudioCodeBackground
 import com.algorithm_questions_visualizer.ui.theme.Orange
 import com.algorithm_questions_visualizer.ui.theme.Yellow
 
-fun twoSum(numbers: IntArray, target: Int): IntArray? {
-    val map = hashMapOf<Int, Int>()
-    numbers.forEachIndexed { index, value ->
-        val complement = target - value
-        if (map.containsKey(complement))
-            return intArrayOf(map[complement]!!, index)
-        map[value] = index
-    }
-    return null
-}
-
 @Composable
 fun ProblemSolution(solution: String) {
     Column(modifier = Modifier
         .width(32.dp)
         .fillMaxHeight()) {
         for (i in 0..200) {
-
+            //TODO - add lines composable
         }
     }
     AutoResizedText(
