@@ -1,13 +1,13 @@
 package com.algorithm_questions_visualizer.model
 
 data class AlgorithmicProblem(
-    val questionNumber: Int,
     val title: String,
-    val description: String,
-    val solution: String,
-    val examples: List<Example>,
     val source: Source,
-    val difficulty: Difficulty
+    val solution: Solution,
+    val description: String,
+    val questionNumber: Int,
+    val difficulty: Difficulty,
+    val examples: List<Example>
 ) {
     enum class Source {
         LEETCODE,
@@ -24,5 +24,10 @@ data class AlgorithmicProblem(
         val input: String,
         val output: String,
         val explanation: String? = null
+    )
+
+    data class Solution(
+        val solutionCode: String,
+        val explanation: String
     )
 }

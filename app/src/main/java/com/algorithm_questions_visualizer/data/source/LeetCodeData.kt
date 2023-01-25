@@ -10,24 +10,30 @@ val leetcode1 = AlgorithmicProblem(
             "You may assume that each input would have exactly one solution, and you may not use the same element twice.\n" +
             "\n" +
             "You can return the answer in any order.",
-    solution = "fun twoSum(numbers: IntArray, target: Int): IntArray? {\n" +
-            "        val map = hashMapOf<Int, Int>()\n" +
-            "        numbers.forEachIndexed { index, value -> // 1, 7\n" +
-            "            /* In order to save each value we iterated through, we decrease from the target the current\n" +
-            "             value, giving us the remaining value to get the result.\n" +
-            "             * */\n" +
-            "            val complement = target - value // 9 - 7 = 2\n" +
-            "            /*We ask if the map contains the current complement key,\n" +
-            "             which is the value of a possible previous iteration */\n" +
-            "            if (map.containsKey(complement)) // 2\n" +
-            "                //We pull the index of the current complement\n" +
-            "                //and put it with the index of the current iteration\n" +
-            "                return intArrayOf(map[complement]!!, index) // 2:1\n" +
-            "            //We store into the map each value:index,\n" +
-            "            map[value] = index // 2:0,\n" +
-            "        }\n" +
-            "        return null\n" +
-            "    }",
+    solution = AlgorithmicProblem.Solution(
+        solutionCode = "fun twoSum(numbers: IntArray, target: Int): IntArray? { \n" +
+                "        val map = hashMapOf<Int, Int>() \n" +
+                "        numbers.forEachIndexed { index, value -> \n" +
+                "            val complement = target - value \n" +
+                "            if (map.containsKey(complement)) \n" +
+                "                return intArrayOf(map[complement]!!, index) \n" +
+                "            map[value] = index \n" +
+                "        } \n" +
+                "        return null \n" +
+                "    }",
+        explanation = "Best Approach: One-pass Hash Table \n" +
+                "\n" +
+                "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
+                "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
+                "If it exists, we have found a solution and return the indices immediately. " +
+                "\n" +
+                "\n" +
+                "Complexity Analysis \n" +
+                "\n" +
+                "* Time complexity: O(n).\nWe traverse the list containing n elements only once. Each lookup in the table costs only O(1) time.\n" +
+                "\n" +
+                "* Space complexity: O(n).\nThe extra space required depends on the number of items stored in the hash table, which stores at most n elements."
+    ),
     examples = listOf(
         AlgorithmicProblem.Example(
             input = "nums = [2,7,11,15], target = 9",
