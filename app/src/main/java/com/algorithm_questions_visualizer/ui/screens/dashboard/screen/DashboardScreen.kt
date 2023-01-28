@@ -7,13 +7,11 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.algorithm_questions_visualizer.core.extensions.SingleTimeLaunchedEffect
-import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.ui.screens.dashboard.body.DashboardScreenBody
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel.UiAction.NavigateToProblemScreen
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel.UiAction.NoAction
 import com.algorithm_questions_visualizer.ui.screens.destinations.ProblemScreenDestination
-import com.algorithm_questions_visualizer.ui.screens.problem.screen.screen.ProblemScreen
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.screen.ProblemScreenNavArgs
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ramcosta.composedestinations.annotation.Destination
@@ -28,7 +26,7 @@ fun DashboardScreen(
     navigator: DestinationsNavigator,
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
-    setSystemBarsColors()
+    SetSystemBarsColors()
 
     val uiState by viewModel.uiState.collectAsState()
     val uiAction by viewModel.uiAction.collectAsState(initial = NoAction)
@@ -47,7 +45,7 @@ fun DashboardScreen(
 }
 
 @Composable
-private fun setSystemBarsColors() {
+private fun SetSystemBarsColors() {
     val uiController = rememberSystemUiController()
     SingleTimeLaunchedEffect {
         uiController.setSystemBarsColor(color = Color.Black)

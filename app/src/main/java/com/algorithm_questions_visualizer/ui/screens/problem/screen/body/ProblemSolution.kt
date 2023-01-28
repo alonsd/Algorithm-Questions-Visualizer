@@ -2,7 +2,6 @@ package com.algorithm_questions_visualizer.ui.screens.problem.screen.body
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

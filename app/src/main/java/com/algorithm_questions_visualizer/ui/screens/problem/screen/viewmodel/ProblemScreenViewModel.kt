@@ -5,9 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.algorithm_questions_visualizer.data.repository.ProblemsRepository
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
-import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel
 import com.algorithm_questions_visualizer.ui.screens.destinations.ProblemScreenDestination
-import com.algorithm_questions_visualizer.ui.screens.problem.screen.screen.ProblemScreenNavArgs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
