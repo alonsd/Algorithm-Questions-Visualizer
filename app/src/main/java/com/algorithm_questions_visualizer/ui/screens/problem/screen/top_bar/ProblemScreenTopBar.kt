@@ -33,7 +33,7 @@ fun ProblemScreenTopBar(
         Text(
             modifier = Modifier.padding(16.dp),
             text = stringResource(
-                id = R.string.problem_screen_question_title,
+                id = R.string.question_title,
                 title,
                 questionNumber
             ),

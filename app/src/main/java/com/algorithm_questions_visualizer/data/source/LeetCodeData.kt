@@ -52,3 +52,59 @@ val leetcode1 = AlgorithmicProblem(
     source = AlgorithmicProblem.Source.LEETCODE,
     difficulty = AlgorithmicProblem.Difficulty.EASY
 )
+val leetcode2 = AlgorithmicProblem(
+    questionNumber = 2,
+    title = "Add Two Numbers",
+    description = "You are given two non-empty linked lists representing two non-negative integers." +
+            " The digits are stored in reverse order, and each of their nodes contains a single digit." +
+            " Add the two numbers and return the sum as a linked list. \n" +
+            "\n" +
+            "You may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+    solution = AlgorithmicProblem.Solution(
+        solutionCode =
+                "class ListNode(var `val`: Int) { \n" +
+                "    var next: ListNode? = null \n" +
+                "} \n\n" +
+                "fun addTwoNumbers(list1: ListNode?, list2: ListNode?): ListNode? { \n" +
+                "    var l1 = list1 \n" +
+                "    var l2 = list2 \n" +
+                "    val head = ListNode(0) \n" +
+                "    var current = head \n" +
+                "    var carry = 0 \n" +
+                "    while (l1 != null || l2 != null || carry != 0) { \n" +
+                "        val x = l1?.`val` ?: 0 \n" +
+                "        val y = l2?.`val` ?: 0 \n" +
+                "        val sum = carry + x + y \n" +
+                "        carry = sum / 10 \n" +
+                "        current.next = ListNode(sum % 10) \n" +
+                "        current = current.next!! \n" +
+                "        if (l1 != null) { \n" +
+                "            l1 = l1.next \n" +
+                "        } \n" +
+                "        if (l2 != null) { \n" +
+                "            l2 = l2.next \n" +
+                "        } \n" +
+                "    } \n" +
+                "    return head.next \n" +
+                "}",
+        explanation = ""
+    ),
+    examples = listOf(
+        AlgorithmicProblem.Example(
+            input = "l1 = [2,4,3], l2 = [5,6,4]",
+            output = "[7,0,8]",
+            explanation = "342 + 465 = 807."
+        ),
+        AlgorithmicProblem.Example(
+            input = "l1 = [0], l2 = [0]",
+            output = "[0]"
+        ),
+        AlgorithmicProblem.Example(
+            input = "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]",
+            output = "[8,9,9,9,0,0,0,1]"
+        ),
+    ),
+    source = AlgorithmicProblem.Source.LEETCODE,
+    difficulty = AlgorithmicProblem.Difficulty.MEDIUM
+)
+

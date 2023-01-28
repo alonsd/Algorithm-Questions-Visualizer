@@ -3,6 +3,7 @@ package com.algorithm_questions_visualizer.ui.screens.problem.screen.body
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.appendInlineContent
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,6 +17,40 @@ import com.algorithm_questions_visualizer.data.source.leetcode1
 import com.algorithm_questions_visualizer.ui.theme.AndroidStudioCodeBackground
 import com.algorithm_questions_visualizer.ui.theme.Orange
 import com.algorithm_questions_visualizer.ui.theme.Yellow
+
+
+@Composable
+fun TextAsIntellij(solution : String) {
+    Text(text = buildAnnotatedString {
+        val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",", "class", "while")
+        val kotlinExtensions = mutableListOf("forEachIndexed")
+        solution.split(" ", ".").forEach { string ->
+            if (kotlinKeywords.contains(string)) {
+                withStyle(
+                    style = SpanStyle(
+                        color = Orange
+                    )
+                ) {
+                    append(string)
+                    append(' ')
+                }
+                return@forEach
+            } else if (kotlinExtensions.contains(string)) {
+                withStyle(
+                    style = SpanStyle(
+                        color = Yellow
+                    )
+                ) {
+                    append(string)
+                    append(" ")
+                }
+                return@forEach
+            }
+            append(string)
+            append(' ')
+        }
+    })
+}
 
 @Composable
 fun ProblemSolution(solution: String) {
@@ -32,7 +67,7 @@ fun ProblemSolution(solution: String) {
             .background(AndroidStudioCodeBackground)
             .padding(32.dp),
         text = buildAnnotatedString {
-            val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",")
+            val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",", "class", "while", "break", "continue")
             val kotlinExtensions = mutableListOf("forEachIndexed")
             solution.split(" ", ".").forEach { string ->
                 if (kotlinKeywords.contains(string)) {
@@ -46,7 +81,6 @@ fun ProblemSolution(solution: String) {
                     }
                     return@forEach
                 } else if (kotlinExtensions.contains(string)) {
-                    appendInlineContent(" ", ".")
                     withStyle(
                         style = SpanStyle(
                             color = Yellow

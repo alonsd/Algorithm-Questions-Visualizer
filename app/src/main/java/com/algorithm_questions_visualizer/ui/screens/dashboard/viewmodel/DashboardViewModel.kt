@@ -3,6 +3,7 @@ package com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.algorithm_questions_visualizer.data.repository.DashboardRepository
+import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -10,11 +11,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    private val dashboardRepository: DashboardRepository
+    dashboardRepository: DashboardRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(UiState())
-    val uiState = _uiState.asStateFlow()
+    val uiState: StateFlow<UiState> = flow<UiState> {
+        UiState(
+            state = UiState.State.Data,
+            algorithmicProblems = dashboardRepository.getQuestions()
+        )
+    }.stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5_000),
+            UiState()
+        )
 
     private val _uiAction = MutableSharedFlow<UiAction>()
     val uiAction = _uiAction.asSharedFlow()
@@ -27,10 +36,6 @@ class DashboardViewModel @Inject constructor(
         _uiAction.emit(uiAction)
     }
 
-    private fun submitUiState(uiState: UiState) {
-        _uiState.update { uiState }
-    }
-
     fun submitEvent(uiEvent: UiEvent) = viewModelScope.launch {
         _uiEvent.emit(uiEvent)
     }
@@ -40,7 +45,8 @@ class DashboardViewModel @Inject constructor(
 
     data class UiState(
         val errorMessage: String = "",
-        val state: State = State.Initial
+        val state: State = State.Initial,
+        val algorithmicProblems: List<AlgorithmicProblem> = emptyList()
     ) {
         enum class State {
             Data,

@@ -92,6 +92,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha04")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha04")
+//    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha05")
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
 
