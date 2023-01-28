@@ -2,7 +2,7 @@ package com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.algorithm_questions_visualizer.data.repository.DashboardRepository
+import com.algorithm_questions_visualizer.data.repository.ProblemsRepository
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -11,14 +11,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    dashboardRepository: DashboardRepository
+    problemsRepository: ProblemsRepository
 ) : ViewModel() {
 
     val uiState: StateFlow<UiState> = flow {
         emit(
             UiState(
                 state = UiState.State.Data,
-                algorithmicProblems = dashboardRepository.getQuestions()
+                algorithmicProblems = problemsRepository.getProblems()
             )
         )
     }.stateIn(

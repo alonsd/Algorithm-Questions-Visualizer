@@ -12,7 +12,9 @@ import com.algorithm_questions_visualizer.ui.screens.dashboard.body.DashboardScr
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel.UiAction.NavigateToProblemScreen
 import com.algorithm_questions_visualizer.ui.screens.dashboard.viewmodel.DashboardViewModel.UiAction.NoAction
+import com.algorithm_questions_visualizer.ui.screens.destinations.ProblemScreenDestination
 import com.algorithm_questions_visualizer.ui.screens.problem.screen.screen.ProblemScreen
+import com.algorithm_questions_visualizer.ui.screens.problem.screen.screen.ProblemScreenNavArgs
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
@@ -31,9 +33,9 @@ fun DashboardScreen(
     val uiState by viewModel.uiState.collectAsState()
     val uiAction by viewModel.uiAction.collectAsState(initial = NoAction)
 
-    when(uiAction) {
+    when(val action = uiAction) {
         is NavigateToProblemScreen -> {
-//            navigator.navigate(ProblemScreen(algorithmicProblem = leetcode1))
+            navigator.navigate(ProblemScreenDestination(ProblemScreenNavArgs(action.itemId)))
         }
         NoAction -> Unit
     }
