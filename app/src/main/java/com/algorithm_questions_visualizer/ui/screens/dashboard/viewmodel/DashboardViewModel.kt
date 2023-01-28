@@ -14,16 +14,18 @@ class DashboardViewModel @Inject constructor(
     dashboardRepository: DashboardRepository
 ) : ViewModel() {
 
-    val uiState: StateFlow<UiState> = flow<UiState> {
-        UiState(
-            state = UiState.State.Data,
-            algorithmicProblems = dashboardRepository.getQuestions()
+    val uiState: StateFlow<UiState> = flow {
+        emit(
+            UiState(
+                state = UiState.State.Data,
+                algorithmicProblems = dashboardRepository.getQuestions()
+            )
         )
     }.stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(5_000),
-            UiState()
-        )
+        viewModelScope,
+        SharingStarted.WhileSubscribed(5_000),
+        UiState()
+    )
 
     private val _uiAction = MutableSharedFlow<UiAction>()
     val uiAction = _uiAction.asSharedFlow()

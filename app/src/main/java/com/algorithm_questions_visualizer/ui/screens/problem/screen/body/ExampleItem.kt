@@ -29,9 +29,6 @@ fun ExampleItem(
             .fillMaxWidth()
             .wrapContentHeight()
             .background(Color.Black)
-            .clickable {
-
-            }
     ) {
         CompositionLocalProvider(LocalContentColor provides Color.White) {
             Text(

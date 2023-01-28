@@ -2,6 +2,7 @@ package com.algorithm_questions_visualizer.ui.screens.dashboard.list_item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -10,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,16 +20,21 @@ import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 
 @Composable
 fun AlgorithmProblemListItem(
+    problemId: Int,
     questionNumber: Int,
     questionTitle: String,
-    source: AlgorithmicProblem.Source
+    source: AlgorithmicProblem.Source,
+    onItemClicked: (problemId: Int) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .background(Color.Black)
-            .padding(vertical = 16.dp, horizontal = 32.dp),
+            .padding(vertical = 16.dp, horizontal = 32.dp)
+            .clickable {
+                onItemClicked(problemId)
+            },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -58,5 +63,10 @@ fun AlgorithmProblemListItem(
 @Preview(showBackground = true)
 @Composable
 fun AlgorithmProblemListItemPreview() {
-    AlgorithmProblemListItem(1, "Two Sum", AlgorithmicProblem.Source.LEETCODE)
+    AlgorithmProblemListItem(
+        1,
+        1,
+        "Two Sum",
+        AlgorithmicProblem.Source.LEETCODE
+    ) {}
 }

@@ -43,10 +43,13 @@ fun DashboardScreen(
     ) {
         items(uiState.algorithmicProblems) { algorithmicProblem ->
             AlgorithmProblemListItem(
+                problemId = algorithmicProblem.problemId,
                 questionNumber = algorithmicProblem.questionNumber,
                 questionTitle = algorithmicProblem.title,
                 source = algorithmicProblem.source
-            )
+            ) { problemId ->
+
+            }
         }
     }
 

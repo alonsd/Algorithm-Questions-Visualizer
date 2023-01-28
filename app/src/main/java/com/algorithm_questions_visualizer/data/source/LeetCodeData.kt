@@ -3,6 +3,7 @@ package com.algorithm_questions_visualizer.data.source
 import com.algorithm_questions_visualizer.model.AlgorithmicProblem
 
 val leetcode1 = AlgorithmicProblem(
+    problemId = 1,
     questionNumber = 1,
     title = "Two Sum",
     description = "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n" +
@@ -53,6 +54,7 @@ val leetcode1 = AlgorithmicProblem(
     difficulty = AlgorithmicProblem.Difficulty.EASY
 )
 val leetcode2 = AlgorithmicProblem(
+    problemId = 2,
     questionNumber = 2,
     title = "Add Two Numbers",
     description = "You are given two non-empty linked lists representing two non-negative integers." +

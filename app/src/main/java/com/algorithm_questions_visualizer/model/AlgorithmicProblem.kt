@@ -1,6 +1,7 @@
 package com.algorithm_questions_visualizer.model
 
 data class AlgorithmicProblem(
+    val problemId : Int,
     val title: String,
     val source: Source,
     val solution: Solution,
