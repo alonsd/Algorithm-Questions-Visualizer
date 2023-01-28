@@ -6,7 +6,6 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.algorithm_questions_visualizer.core.extensions.setAqvContent
-import com.algorithm_questions_visualizer.ui.screens.dashboard.screen.NavGraphs
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +17,7 @@ class ApplicationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setAqvContent {
-            DestinationsNavHost(navGraph = NavGraphs.root)
+//            DestinationsNavHost(navGraph = NavGraps)
         }
     }
 }

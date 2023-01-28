@@ -19,9 +19,11 @@ import com.algorithm_questions_visualizer.ui.theme.AqvTheme
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
+@Destination
 @Composable
 fun ProblemScreen(
     modifier: Modifier = Modifier,

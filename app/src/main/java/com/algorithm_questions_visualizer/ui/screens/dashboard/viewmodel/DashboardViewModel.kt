@@ -33,6 +33,20 @@ class DashboardViewModel @Inject constructor(
     private val _uiEvent = MutableSharedFlow<UiEvent>()
     private val uiEvent = _uiEvent.asSharedFlow()
 
+    init {
+        observeUiEvent()
+    }
+
+    private fun observeUiEvent() = viewModelScope.launch {
+        uiEvent.collect {event ->
+            when(event) {
+                is UiEvent.OnListItemClicked -> {
+                    submitAction(UiAction.NavigateToProblemScreen(event.itemId))
+                }
+            }
+        }
+    }
+
 
     private fun submitAction(uiAction: UiAction) = viewModelScope.launch {
         _uiAction.emit(uiAction)
@@ -43,6 +57,7 @@ class DashboardViewModel @Inject constructor(
     }
 
     sealed interface UiEvent {
+        data class OnListItemClicked(val itemId: Int) : UiEvent
     }
 
     data class UiState(
@@ -58,6 +73,7 @@ class DashboardViewModel @Inject constructor(
     }
 
     sealed interface UiAction {
-
+        data class NavigateToProblemScreen(val itemId: Int) : UiAction
+        object NoAction
     }
 }
