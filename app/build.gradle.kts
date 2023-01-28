@@ -28,7 +28,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0-alpha02"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
 
 
@@ -95,10 +95,11 @@ dependencies {
 
     //Compose
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.animation:animation:1.4.0-alpha04")
-    implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha04")
+    implementation("androidx.compose.animation:animation:1.4.0-alpha05")
+    implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha05")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha04")
+    implementation("androidx.core:core-ktx:+")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha05")
 //    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha05")
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
@@ -134,7 +135,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 
     //Gson
-    implementation("com.google.code.gson:gson:2.10")
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //Dagger - Hilt
@@ -143,8 +144,8 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.44.2")
 
     //Compose Destinations
-    implementation("io.github.raamcosta.compose-destinations:animations-core:1.7.25-beta")
-    ksp("io.github.raamcosta.compose-destinations:ksp:1.7.25-beta")
+    implementation("io.github.raamcosta.compose-destinations:animations-core:1.8.33-beta")
+    ksp("io.github.raamcosta.compose-destinations:ksp:1.8.33-beta")
 
 }
 
