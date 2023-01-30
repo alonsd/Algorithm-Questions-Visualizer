@@ -3,8 +3,8 @@
     <!--    App Name-->
     <string name="app_name">Algorithm Questions Visualizer</string>
 
-    <!--    ProblemScreen-->
-    <string name="problem_screen_question_title">%1$s. %2$s</string>
+    <!--    General-->
+    <string name="question_title">%1$s. %2$s</string>
 
     <!--    ExampleItem-->
     <string name="example_item_title">Example %1$s:</string>
