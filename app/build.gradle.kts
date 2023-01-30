@@ -69,7 +69,7 @@ android {
         )
         // There is currently an issue with the below solution:
         // https://issuetracker.google.com/issues/255915317
-        // So for now at least, use the above one instead ☝️
+        // For now we use the solution above until ramcosta solves it ☝️
 
 //        kotlin.sourceSets {
 //            getByName(name) {
@@ -98,9 +98,7 @@ dependencies {
     implementation("androidx.compose.animation:animation:1.4.0-alpha05")
     implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha05")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    implementation("androidx.core:core-ktx:+")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha05")
-//    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-alpha05")
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
 
