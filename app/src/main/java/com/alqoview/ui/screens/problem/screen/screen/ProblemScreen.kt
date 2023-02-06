@@ -6,14 +6,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.alqoview.core.ui.navigation.ScreenTransitions
 import com.alqoview.ui.screens.problem.screen.state.ProblemScreenDataState
 import com.alqoview.ui.screens.problem.screen.viewmodel.ProblemScreenViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination(
     navArgsDelegate = ProblemScreenNavArgs::class,
-//    style = ScreenTransitions::class
 )
 @Composable
 fun ProblemScreen(

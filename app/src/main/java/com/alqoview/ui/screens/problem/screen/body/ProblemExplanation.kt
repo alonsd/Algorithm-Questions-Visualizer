@@ -14,30 +14,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alqoview.data.source.leetcode1
+import com.alqoview.model.AlgorithmicProblem
 
 @Composable
-fun ProblemExplanation(explanation: String) {
+fun ProblemExplanation(explanation: AlgorithmicProblem.Solution.Explanation) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
     ) {
         Text(
-            text = buildAnnotatedString {
-                append(explanation)
-                val boldTexts = listOf("Best Approach:", "Complexity Analysis", "Time complexity:", "Space complexity:")
-                boldTexts.forEach { text ->
-                    val startIndex = explanation.indexOf(text)
-                    val endIndex = startIndex + text.length
-                    addStyle(
-                        style = SpanStyle(
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 16.sp
-                        ),
-                        start = startIndex, end = endIndex
-                    )
-                }
-            },
+            text = explanation.explanationDescription,
             color = Color.White,
             fontSize = 14.sp
         )

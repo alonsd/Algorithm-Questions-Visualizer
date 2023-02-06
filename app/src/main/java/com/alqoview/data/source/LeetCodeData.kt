@@ -22,18 +22,15 @@ val leetcode1 = AlgorithmicProblem(
                 "        } \n" +
                 "        return null \n" +
                 "    }",
-        explanation = "Best Approach: One-pass Hash Table \n" +
-                "\n" +
-                "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
-                "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
-                "If it exists, we have found a solution and return the indices immediately. " +
-                "\n" +
-                "\n" +
-                "Complexity Analysis \n" +
-                "\n" +
-                "* Time complexity: O(n).\nWe traverse the list containing n elements only once. Each lookup in the table costs only O(1) time.\n" +
-                "\n" +
-                "* Space complexity: O(n).\nThe extra space required depends on the number of items stored in the hash table, which stores at most n elements."
+        explanation = AlgorithmicProblem.Solution.Explanation(
+            bestApproach = "Best Approach: One-pass Hash Table",
+            explanationDescription = "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
+                    "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
+                    "If it exists, we have found a solution and return the indices immediately. ",
+            coreConcepts = "Core Concepts",
+            timeComplexity = "O(n).\nWe traverse the list containing n elements only once. Each lookup in the table costs only O(1) time.",
+            spaceComplexity = "O(n).\nThe extra space required depends on the number of items stored in the hash table, which stores at most n elements."
+        )
     ),
     examples = listOf(
         AlgorithmicProblem.Example(
@@ -64,7 +61,7 @@ val leetcode2 = AlgorithmicProblem(
             "You may assume the two numbers do not contain any leading zero, except the number 0 itself.",
     solution = AlgorithmicProblem.Solution(
         solutionCode =
-                "class ListNode(var `val`: Int) { \n" +
+        "class ListNode(var `val`: Int) { \n" +
                 "    var next: ListNode? = null \n" +
                 "} \n\n" +
                 "fun addTwoNumbers(list1: ListNode?, list2: ListNode?): ListNode? { \n" +
@@ -89,7 +86,13 @@ val leetcode2 = AlgorithmicProblem(
                 "    } \n" +
                 "    return head.next \n" +
                 "}",
-        explanation = ""
+        explanation = AlgorithmicProblem.Solution.Explanation(
+            bestApproach = "",
+            explanationDescription = "",
+            coreConcepts = "",
+            timeComplexity = "",
+            spaceComplexity = ""
+        )
     ),
     examples = listOf(
         AlgorithmicProblem.Example(

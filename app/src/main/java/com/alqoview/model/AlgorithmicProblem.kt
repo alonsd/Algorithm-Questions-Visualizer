@@ -29,7 +29,7 @@ data class AlgorithmicProblem(
 
     data class Solution(
         val solutionCode: String,
-        val explanation: String
+        val explanation: Explanation
     ) {
         data class Explanation(
             val bestApproach: String,
