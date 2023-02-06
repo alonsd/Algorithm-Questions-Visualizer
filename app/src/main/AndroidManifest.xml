@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.algorithm_questions_visualizer">
+    package="com.alqoview">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.algorithm_questions_visualizer.core.application.App"
+        android:name="com.alqoview.core.application.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.AlgorithmQuestionsVisualizer">
         <activity
-            android:name="com.algorithm_questions_visualizer.ui.activity.ApplicationActivity"
+            android:name="com.alqoview.ui.activity.ApplicationActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>

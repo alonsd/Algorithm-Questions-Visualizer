@@ -1,7 +1,7 @@
 <resources>
 
     <!--    App Name-->
-    <string name="app_name">Algorithm Questions Visualizer</string>
+    <string name="app_name">AlqoView</string>
 
     <!--    General-->
     <string name="question_title">%1$s. %2$s</string>

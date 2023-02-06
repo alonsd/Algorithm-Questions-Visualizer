@@ -1,0 +1,24 @@
+package com.alqoview.ui.activity
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.ui.ExperimentalComposeUiApi
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.alqoview.core.extensions.setAqvContent
+import com.alqoview.ui.screens.NavGraphs
+import com.ramcosta.composedestinations.DestinationsNavHost
+import dagger.hilt.android.AndroidEntryPoint
+
+@ExperimentalMaterialNavigationApi
+@ExperimentalAnimationApi
+@ExperimentalComposeUiApi
+@AndroidEntryPoint
+class ApplicationActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setAqvContent {
+            DestinationsNavHost(navGraph = NavGraphs.root)
+        }
+    }
+}

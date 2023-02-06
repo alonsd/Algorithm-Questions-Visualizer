@@ -33,7 +33,7 @@ android {
 
 
     defaultConfig {
-        applicationId = "com.algorithm.questions.visualizer"
+        applicationId = "com.alqoview"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
