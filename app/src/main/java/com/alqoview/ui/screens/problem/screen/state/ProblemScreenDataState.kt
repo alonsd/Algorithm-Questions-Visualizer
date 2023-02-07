@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.alqoview.data.source.leetcode1
 import com.alqoview.model.AlgorithmicProblem
-import com.alqoview.ui.screens.problem.screen.body.ProblemDescription
-import com.alqoview.ui.screens.problem.screen.body.ProblemExplanation
-import com.alqoview.ui.screens.problem.screen.body.ProblemSolution
+import com.alqoview.ui.screens.problem.screen.body.description.ProblemDescription
+import com.alqoview.ui.screens.problem.screen.body.explanation.ProblemExplanation
+import com.alqoview.ui.screens.problem.screen.body.solution.ProblemSolution
 import com.alqoview.ui.screens.problem.screen.top_bar.ProblemScreenTabs
 import com.alqoview.ui.screens.problem.screen.top_bar.ProblemScreenTopBar
 import com.alqoview.ui.theme.AqvTheme
@@ -56,7 +56,7 @@ fun ProblemScreenDataState(
                     )
                 }
                 ProblemScreenTabs.EXPLANATION.ordinal -> {
-                    ProblemExplanation(algorithmicProblem.solution.explanation)
+                    ProblemExplanation(explanation = algorithmicProblem.solution.explanation)
                 }
                 ProblemScreenTabs.SOLUTION.ordinal -> {
                     ProblemSolution(algorithmicProblem.solution.solutionCode)

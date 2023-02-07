@@ -1,4 +1,4 @@
-package com.alqoview.ui.screens.problem.screen.body
+package com.alqoview.ui.screens.problem.screen.body.description
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,7 @@ import com.alqoview.R
 import com.alqoview.model.AlgorithmicProblem
 
 @Composable
-fun ExampleItem(
+fun DescriptionExampleItem(
     example: AlgorithmicProblem.Example,
     exampleNumber: Int
 ) {
@@ -71,7 +71,7 @@ fun ExampleItem(
 @Preview(showBackground = true)
 @Composable
 fun ExampleItemPreview() {
-    ExampleItem(
+    DescriptionExampleItem(
         AlgorithmicProblem.Example(
             input = "nums = [2,7,11,15], target = 9",
             output = "[0,1]",

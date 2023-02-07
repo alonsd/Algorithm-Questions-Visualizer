@@ -1,4 +1,4 @@
-package com.alqoview.ui.screens.problem.screen.body
+package com.alqoview.ui.screens.problem.screen.body.description
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -36,10 +36,10 @@ fun ProblemDescription(
             color = MaterialTheme.colorScheme.onBackground
         )
         Spacer(modifier = Modifier.padding(top = 32.dp))
-        for (i in examples.indices) {
-            ExampleItem(
-                example = examples[i],
-                exampleNumber = i
+        examples.forEachIndexed { index, example ->
+            DescriptionExampleItem(
+                example = example,
+                exampleNumber = index
             )
         }
     }

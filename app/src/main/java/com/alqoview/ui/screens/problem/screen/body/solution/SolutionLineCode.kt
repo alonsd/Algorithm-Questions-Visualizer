@@ -1,4 +1,4 @@
-package com.alqoview.ui.screens.problem.screen.body
+package com.alqoview.ui.screens.problem.screen.body.solution
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

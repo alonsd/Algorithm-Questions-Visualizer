@@ -33,10 +33,15 @@ data class AlgorithmicProblem(
     ) {
         data class Explanation(
             val bestApproach: String,
-            val explanationDescription : String,
-            val coreConcepts : String,
-            val timeComplexity : String,
-            val spaceComplexity : String,
-        )
+            val explanationDescription: String,
+            val coreConcepts: List<CoreConcept>,
+            val timeComplexity: String,
+            val spaceComplexity: String,
+        ) {
+            data class CoreConcept(
+                val name: String,
+                val description: String
+            )
+        }
     }
 }

@@ -23,11 +23,12 @@ val leetcode1 = AlgorithmicProblem(
                 "        return null \n" +
                 "    }",
         explanation = AlgorithmicProblem.Solution.Explanation(
-            bestApproach = "Best Approach: One-pass Hash Table",
+            bestApproach = "One-pass Hash Table",
             explanationDescription = "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
                     "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
                     "If it exists, we have found a solution and return the indices immediately. ",
-            coreConcepts = "Core Concepts",
+            coreConcepts = listOf(AlgorithmicProblem.Solution.Explanation.CoreConcept("Compliment", "Compliment, from the word 'completion' is the number that we" +
+                    " are missing in each iteration in order to find the desired target number.")),
             timeComplexity = "O(n).\nWe traverse the list containing n elements only once. Each lookup in the table costs only O(1) time.",
             spaceComplexity = "O(n).\nThe extra space required depends on the number of items stored in the hash table, which stores at most n elements."
         )
@@ -89,7 +90,7 @@ val leetcode2 = AlgorithmicProblem(
         explanation = AlgorithmicProblem.Solution.Explanation(
             bestApproach = "",
             explanationDescription = "",
-            coreConcepts = "",
+            coreConcepts = listOf(AlgorithmicProblem.Solution.Explanation.CoreConcept("", "")),
             timeComplexity = "",
             spaceComplexity = ""
         )

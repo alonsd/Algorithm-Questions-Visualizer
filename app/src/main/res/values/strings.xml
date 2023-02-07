@@ -12,4 +12,11 @@
     <string name="example_item_output">Output: %1$s</string>
     <string name="example_item_explanation">Explanation: %1$s</string>
 
+    <!--    Problem Screen-->
+    <string name="problem_screen_explanation_best_approach">Best Approach - %1$s</string>
+    <string name="problem_screen_explanation_complexity_analysis">Complexity Analysis</string>
+    <string name="problem_screen_explanation_time_complexity">* Time complexity: %1$s"</string>
+    <string name="problem_screen_explanation_space_complexity">* Space complexity: %1$s"</string>
+    <string name="problem_screen_explanation_core_concepts">Core Concepts</string>
+    <string name="problem_screen_explanation_explanation">Explanation</string>
 </resources>
