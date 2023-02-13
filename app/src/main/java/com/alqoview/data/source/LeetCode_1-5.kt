@@ -142,4 +142,86 @@ val leetcode2 = AlgorithmicProblem(
     source = AlgorithmicProblem.Source.LEETCODE,
     difficulty = AlgorithmicProblem.Difficulty.MEDIUM
 )
+val leetcode3 = AlgorithmicProblem(
+    problemId = 3,
+    questionNumber = 3,
+    title = "Longest Substring Without Repeating Characters",
+    problemDescription = "Given a string s, find the length of the longest \n" +
+            "substring\n" +
+            " without repeating characters. A substring is a contiguous non-empty sequence of characters within a string.",
+    solution = AlgorithmicProblem.Solution(
+        solutionCode =
+        "",
+        explanation = AlgorithmicProblem.Solution.Explanation(
+            bestApproach = "",
+            coreConcepts = listOf(
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "",
+                    ""
+                ),
+            ),
+            explanationDescription = "",
+            spaceComplexity = "",
+            timeComplexity = ""
+        )
+    ),
+    examples = listOf(
+        AlgorithmicProblem.Example(
+            input = "s = \"abcabcbb\"",
+            output = "3",
+            explanation = "The answer is \"abc\", with the length of 3."
+        ),
+        AlgorithmicProblem.Example(
+            input = "s = \"bbbbb\"",
+            output = "1",
+            explanation = "The answer is \"b\", with the length of 1."
 
+        ),
+        AlgorithmicProblem.Example(
+            input = "s = \"pwwkew\"",
+            output = "3",
+            explanation = "The answer is \"wke\", with the length of 3.\n" +
+                    "Notice that the answer must be a substring, \"pwke\" is a subsequence and not a substring."
+        ),
+    ),
+    source = AlgorithmicProblem.Source.LEETCODE,
+    difficulty = AlgorithmicProblem.Difficulty.MEDIUM
+)
+val leetcode4 = AlgorithmicProblem(
+    problemId = 4,
+    questionNumber = 4,
+    title = "Median of Two Sorted Arrays",
+    problemDescription = "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays." +
+            "The overall run time complexity should be O(log (m+n)).",
+    solution = AlgorithmicProblem.Solution(
+        solutionCode =
+        "",
+        explanation = AlgorithmicProblem.Solution.Explanation(
+            bestApproach = "",
+            coreConcepts = listOf(
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "",
+                    ""
+                ),
+            ),
+            explanationDescription = "",
+            spaceComplexity = "",
+            timeComplexity = ""
+        )
+    ),
+    examples = listOf(
+        AlgorithmicProblem.Example(
+            input = "nums1 = [1,3], nums2 = [2]",
+            output = "2.00000",
+            explanation = "merged array = [1,2,3] and median is 2."
+        ),
+        AlgorithmicProblem.Example(
+            input = "nums1 = [1,2], nums2 = [3,4]",
+            output = "2.50000",
+            explanation = "merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.    "
+
+        ),
+    ),
+    source = AlgorithmicProblem.Source.LEETCODE,
+    difficulty = AlgorithmicProblem.Difficulty.HARD
+)
