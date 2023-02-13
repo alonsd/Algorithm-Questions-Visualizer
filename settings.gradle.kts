@@ -18,5 +18,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "Algorithm Questions Visualizer"
+rootProject.name = "AlqoView"
 include(":app")
