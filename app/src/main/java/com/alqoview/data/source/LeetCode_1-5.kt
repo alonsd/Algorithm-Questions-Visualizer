@@ -27,8 +27,12 @@ val leetcode1 = AlgorithmicProblem(
             explanationDescription = "We can iterate through the array while inserting at each iteration the value(of the current iteration) to the index of the current iteration." +
                     "At each iteration, before we are inserting elements into the hash table, we also look back to check if current element's complement already exists in the hash table." +
                     "If it exists, we have found a solution and return the indices immediately. ",
-            coreConcepts = listOf(AlgorithmicProblem.Solution.Explanation.CoreConcept("Compliment", "Compliment, from the word 'completion' is the number that we" +
-                    " are missing in each iteration in order to find the desired target number.")),
+            coreConcepts = listOf(
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Compliment", "Compliment, from the word 'completion' is the number that we" +
+                            " are missing in each iteration in order to find the desired target number."
+                )
+            ),
             timeComplexity = "O(n).\nWe traverse the list containing n elements only once. Each lookup in the table costs only O(1) time.",
             spaceComplexity = "O(n).\nThe extra space required depends on the number of items stored in the hash table, which stores at most n elements."
         )
@@ -88,11 +92,36 @@ val leetcode2 = AlgorithmicProblem(
                 "    return head.next \n" +
                 "}",
         explanation = AlgorithmicProblem.Solution.Explanation(
-            bestApproach = "",
-            explanationDescription = "",
-            coreConcepts = listOf(AlgorithmicProblem.Solution.Explanation.CoreConcept("", "")),
-            timeComplexity = "",
-            spaceComplexity = ""
+            bestApproach = "Elementary Math",
+            coreConcepts = listOf(
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Least Significant Digit",
+                    "When combining 2 numbers, we start from right to left of each number. Each time, we all the most right digit of the first number to the " +
+                            "most right number of the second number. For each iteration of doing that, we are combining digits that are considered the " +
+                            "least significant ones, because their numbers effect the least compared to their left digits which will come next.\n" +
+                            "For example: 24 + 73 = 97. We are starting by adding 4 and 3 which are the least significant digits, then we continue to add 2 and 7. " +
+                            "Things will get complicated when a least significant digits sums at each iteration will pass 10, making us need to use a carry."
+                ),
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Carry",
+                    "What happens in the previous concept when we need to sum the following numbers - 27 + 78 = 105 ? This is where we need to use a carry." +
+                            "Carry is the remainder of a calculation for each iteration, therefore it can only be 0 or 1. Why? " +
+                            "because the maximum calculation we do for each least significant digit is 9+9 which is 18, or we can get a result that is less than 10, which means our carry is 0."
+                ),
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Head-Tail Swapping",
+                    "When building a new LinkedList 'head' that will represents our result in an iterative way, we need to update heads 'next' value each iteration." +
+                            " In order to achieve such behavior, we create a new tail node called 'current' that will initially take the same pointer of 'head' but will be the one responsible " +
+                            "for assigning new values to it's 'next' value instead of 'head' variable, allowing us to return 'head' at the end of the algorithm with all of the 'next' values that " +
+                            "we have calculated."
+
+                ),
+            ),
+            explanationDescription = "Just like how you would sum two numbers on a piece of paper, we begin by summing the least-significant digits, which is the heads of l1 and l2." +
+                    " Since each digit is in the range of 0 to 9, summing two digits may \"overflow\" as we explained in the first core concept." +
+                    " For example 5 + 7 = 12 - in this case, we set the current digit to 2 and bring over the carry with a value of 1 to the next iteration.",
+            timeComplexity = "O(max(m,n))\nAssume that m and n represents the length of l1 and l2 respectively, the algorithm above iterates at most max(m,n) times.",
+            spaceComplexity = "O(max(m,n)).\nThe length of the new list is at most max(m,n)+1."
         )
     ),
     examples = listOf(
