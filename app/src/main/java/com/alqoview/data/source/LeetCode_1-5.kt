@@ -109,7 +109,7 @@ val leetcode2 = AlgorithmicProblem(
                             "because the maximum calculation we do for each least significant digit is 9+9 which is 18, or we can get a result that is less than 10, which means our carry is 0."
                 ),
                 AlgorithmicProblem.Solution.Explanation.CoreConcept(
-                    "Head-Tail Swapping",
+                    "Head/Tail Swapping",
                     "When building a new LinkedList 'head' that will represents our result in an iterative way, we need to update heads 'next' value each iteration." +
                             " In order to achieve such behavior, we create a new tail node called 'current' that will initially take the same pointer of 'head' but will be the one responsible " +
                             "for assigning new values to it's 'next' value instead of 'head' variable, allowing us to return 'head' at the end of the algorithm with all of the 'next' values that " +
@@ -151,18 +151,58 @@ val leetcode3 = AlgorithmicProblem(
             " without repeating characters. A substring is a contiguous non-empty sequence of characters within a string.",
     solution = AlgorithmicProblem.Solution(
         solutionCode =
-        "",
+        "fun lengthOfLongestSubstring(string: String): Int { \n" +
+                "        val charToIndexMap = hashMapOf<Char, Int>() \n" +
+                "        var result = 0 \n" +
+                "        //Window starts from 0,1 because window represents the length of our result \n" +
+                "        var slidingWindowLeftSide = 0 \n" +
+                "        var slidingWindowRightSide = 1 \n" +
+                "        string.forEach { char -> \n" +
+                "            if (charToIndexMap.containsKey(char)) { \n" +
+                "                // Since we are iterating and constantly updating the left window side, the  \n" +
+                "                // correct answer could be  either one of the index of the current char already  \n" +
+                "                // visited or the current position of the sliding window left side. \n" +
+                "                slidingWindowLeftSide = max(charToIndexMap[char]!!, slidingWindowLeftSide) \n" +
+                "            } \n" +
+                "            val currentWindow = slidingWindowRightSide - slidingWindowLeftSide \n" +
+                "            // Same as before - iterating while updating. The current window is not guaranteed to be  \n" +
+                "            // bigger than the last result saved \n" +
+                "            result = max(result, currentWindow) \n" +
+                "            charToIndexMap[char] = slidingWindowRightSide \n" +
+                "            slidingWindowRightSide++ \n" +
+                "        } \n" +
+                "        return result \n" +
+                "    }",
         explanation = AlgorithmicProblem.Solution.Explanation(
-            bestApproach = "",
+            bestApproach = "Optimized Sliding Window",
             coreConcepts = listOf(
                 AlgorithmicProblem.Solution.Explanation.CoreConcept(
-                    "",
-                    ""
+                    "Substring",
+                    "A substring is a contiguous non-empty sequence of characters within a string.\n" +
+                            "For example, given a string \"fast car\" the word \"fast\" is a substring. Note that for this specific " +
+                            "problem, we are looking for a substring without repeating characters, therefore the result for the string \"abcabcab\" " +
+                            "for this problem will be 3 - \"abc\"."
+                ),
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Iterating and changing values via max() function",
+                    "We are using the max() function 2 times in this solution. The concept is to update the needed value firstly by" +
+                            " a new value than it's initial 0, and from there going on we are not sure that the new value that we got will be bigger than " +
+                            "what we already recorded."
+                ),
+                AlgorithmicProblem.Solution.Explanation.CoreConcept(
+                    "Sliding Window",
+                    "Sliding window is a method used to solve array or lists related problems. Iterating from left to right, we " +
+                            "\"open\" the window to the right side and \"close\" the window to the left side when needed, giving us the solution we need."
                 ),
             ),
-            explanationDescription = "",
-            spaceComplexity = "",
-            timeComplexity = ""
+            explanationDescription = "Since we are looking for a substring without repeating characters, we can iterate through the string and " +
+                    "record a map of char : position. Each time we see a char that we have already recorded in our map, we update 2 values:\n" +
+                    "1 - The window's left side as the max between the current window left side value and the index of the same char\n" +
+                    "2 - The problem's result to be the max value between the current result and the current window, which is the right - left",
+            timeComplexity = "O(n)\n We iterate through the entire string and in the worst case fill the map with all of the chars.",
+            spaceComplexity = "O(min(n,m))\n We iterate through the entire string, filling the map entirely in the worst case - meaning" +
+                    "a complexity of O(n). We also need to consider the charset/alphabet we are using, meaning another complexity of" +
+                    "O(m). Therefor, we chose the minimum between n and m."
         )
     ),
     examples = listOf(
