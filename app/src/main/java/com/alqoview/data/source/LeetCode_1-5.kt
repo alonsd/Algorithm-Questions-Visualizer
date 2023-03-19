@@ -151,27 +151,27 @@ val leetcode3 = AlgorithmicProblem(
             " without repeating characters. A substring is a contiguous non-empty sequence of characters within a string.",
     solution = AlgorithmicProblem.Solution(
         solutionCode =
-        "fun lengthOfLongestSubstring(string: String): Int { \n" +
-                "        val charToIndexMap = hashMapOf<Char, Int>() \n" +
-                "        var result = 0 \n" +
-                "        //Window starts from 0,1 because window represents the length of our result \n" +
-                "        var slidingWindowLeftSide = 0 \n" +
-                "        var slidingWindowRightSide = 1 \n" +
-                "        string.forEach { char -> \n" +
-                "            if (charToIndexMap.containsKey(char)) { \n" +
-                "                // Since we are iterating and constantly updating the left window side, the  \n" +
-                "                // correct answer could be  either one of the index of the current char already  \n" +
-                "                // visited or the current position of the sliding window left side. \n" +
-                "                slidingWindowLeftSide = max(charToIndexMap[char]!!, slidingWindowLeftSide) \n" +
-                "            } \n" +
-                "            val currentWindow = slidingWindowRightSide - slidingWindowLeftSide \n" +
-                "            // Same as before - iterating while updating. The current window is not guaranteed to be  \n" +
-                "            // bigger than the last result saved \n" +
-                "            result = max(result, currentWindow) \n" +
-                "            charToIndexMap[char] = slidingWindowRightSide \n" +
-                "            slidingWindowRightSide++ \n" +
-                "        } \n" +
-                "        return result \n" +
+        "fun lengthOfLongestSubstring(string: String): Int {\n" +
+                "        val charToWindowRightSideMap = hashMapOf<Char, Int>()\n" +
+                "        var result = 0\n" +
+                "        //Window starts from 0,1 because window represents the length of our result\n" +
+                "        var slidingWindowLeftSide = 0\n" +
+                "        var slidingWindowRightSide = 1\n" +
+                "        string.forEach { char ->\n" +
+                "            if (charToWindowRightSideMap.containsKey(char)) {\n" +
+                "                // Since we are iterating and constantly updating the left window side, the\n" +
+                "                // correct answer could be  either one of the index of the current char already\n" +
+                "                // visited or the current position of the sliding window left side.\n" +
+                "                slidingWindowLeftSide = max(charToWindowRightSideMap[char]!!, slidingWindowLeftSide)\n" +
+                "            }\n" +
+                "            val currentWindow = slidingWindowRightSide - slidingWindowLeftSide\n" +
+                "            // Same as before - iterating while updating. The current window is not guaranteed to be\n" +
+                "            // bigger than the last result saved\n" +
+                "            result = max(result, currentWindow)\n" +
+                "            charToWindowRightSideMap[char] = slidingWindowRightSide\n" +
+                "            slidingWindowRightSide++\n" +
+                "        }\n" +
+                "        return result\n" +
                 "    }",
         explanation = AlgorithmicProblem.Solution.Explanation(
             bestApproach = "Optimized Sliding Window",

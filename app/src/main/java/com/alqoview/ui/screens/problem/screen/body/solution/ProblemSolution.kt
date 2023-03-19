@@ -3,6 +3,8 @@ package com.alqoview.ui.screens.problem.screen.body.solution
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,6 +17,7 @@ import com.alqoview.core.ui.compose.AutoResizedText
 import com.alqoview.data.source.leetcode1
 import com.alqoview.ui.theme.AndroidStudioCodeBackground
 import com.alqoview.ui.theme.Orange
+import com.alqoview.ui.theme.Purple200
 import com.alqoview.ui.theme.Yellow
 
 @Composable
@@ -34,6 +37,14 @@ fun ProblemSolution(solution: String) {
                 }
             }
         }
+        val keywords = setOf("class", "fun", "val", "var", "if", "else", "when", "is", "in", "return", "while")
+        val extensions = setOf("let", "with", "apply", "also", "run")
+
+        val keywordsColor = Orange
+        val extensionsColor = Yellow
+        val variablesColor = Purple200
+        val lines = solution.split("\n")
+
         AutoResizedText(
             modifier = Modifier
                 .wrapContentWidth()
@@ -41,36 +52,29 @@ fun ProblemSolution(solution: String) {
                 .background(AndroidStudioCodeBackground)
                 .padding(0.dp),
             text = buildAnnotatedString {
-                val kotlinKeywords = mutableListOf("fun", "val", "var", "if", "return", "null", ",", "class", "while", "break", "continue")
-                val kotlinExtensions = mutableListOf("forEachIndexed")
-                solution.split(" ", ".").forEach { string ->
-                    if (kotlinKeywords.contains(string)) {
-                        withStyle(
-                            style = SpanStyle(
-                                color = Orange
-                            )
-                        ) {
-                            append(string)
-                            append(' ')
+                lines.forEach { line ->
+                    val words = line.split(" ")
+                    words.forEachIndexed { index, word ->
+                        if (line.startsWith("//")) {
+                            // set color of entire line to grey
+                            withStyle(style = SpanStyle(color = Color.Gray)) {
+                                append(line)
+                            }
+                            return@forEachIndexed
                         }
-                        return@forEach
-                    } else if (kotlinExtensions.contains(string)) {
-                        withStyle(
-                            style = SpanStyle(
-                                color = Yellow
-                            )
-                        ) {
-                            append(string)
-                            append(" ")
+                        val color = when {
+                            word in keywords -> keywordsColor
+                            word in extensions -> extensionsColor
+                            index > 0 && words[index - 1] == "." -> variablesColor
+                            else -> Color.White
                         }
-                        return@forEach
+                        withStyle(style = SpanStyle(color = color)) {
+                            append("$word ")
+                        }
                     }
-                    append(string)
-                    append(' ')
+                    append("\n")
                 }
-            },
-            color = Color.White,
-        )
+            })
     }
 }
 
