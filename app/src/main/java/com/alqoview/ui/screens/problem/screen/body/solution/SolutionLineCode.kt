@@ -14,12 +14,12 @@ import com.alqoview.ui.theme.AndroidStudioCodeLinesBackgroundColor
 import com.alqoview.ui.theme.AndroidStudioCodeLinesColor
 
 @Composable
-fun SolutionLineCode(lineOfCode: Int) {
+fun SolutionLineCode(lineOfCode: Int, fontSize : Float) {
     Row(
         modifier = Modifier
             .background(AndroidStudioCodeLinesBackgroundColor)
             .width(67.dp)
-            .height(IntrinsicSize.Min)
+            .wrapContentHeight()
             .padding(start = 0.dp, end = 0.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
@@ -27,7 +27,7 @@ fun SolutionLineCode(lineOfCode: Int) {
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = if (lineOfCode < 10) " $lineOfCode" else lineOfCode.toString(),
-            fontSize = 16.sp,
+            fontSize = fontSize.sp,
             color = AndroidStudioCodeLinesColor,
         )
         Spacer(modifier = Modifier.weight(1f))
@@ -38,11 +38,10 @@ fun SolutionLineCode(lineOfCode: Int) {
             thickness = 1.dp
         )
     }
-
 }
 
 @Preview(showBackground = true)
 @Composable
 fun SolutionLineCodePreview() {
-    SolutionLineCode(999)
+    SolutionLineCode(999, 41f)
 }

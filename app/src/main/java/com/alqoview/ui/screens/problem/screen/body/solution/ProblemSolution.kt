@@ -3,9 +3,7 @@ package com.alqoview.ui.screens.problem.screen.body.solution
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
@@ -22,6 +20,9 @@ import com.alqoview.ui.theme.Yellow
 
 @Composable
 fun ProblemSolution(solution: String) {
+
+    var solutionLineFontSize by remember { mutableStateOf(16f) }
+
     Row(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
@@ -33,12 +34,12 @@ fun ProblemSolution(solution: String) {
                     .count { "\n".contains(it) }
                     .coerceAtLeast(50)
                 items(linesCount) { line ->
-                    SolutionLineCode(lineOfCode = line)
+                    SolutionLineCode(lineOfCode = line, solutionLineFontSize)
                 }
             }
         }
         val keywords = setOf("class", "fun", "val", "var", "if", "else", "when", "is", "in", "return", "while")
-        val extensions = setOf("let", "with", "apply", "also", "run")
+        val extensions = setOf("forEachIndexed")
 
         val keywordsColor = Orange
         val extensionsColor = Yellow
@@ -74,6 +75,9 @@ fun ProblemSolution(solution: String) {
                     }
                     append("\n")
                 }
+            },
+            onTextSizeFinalized = { size ->
+                solutionLineFontSize = 10f
             })
     }
 }
