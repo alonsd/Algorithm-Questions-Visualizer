@@ -1,5 +1,6 @@
 package com.alqoview.core.ui.compose
 
+import android.util.Log
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -15,7 +16,8 @@ fun AutoResizedText(
     modifier: Modifier = Modifier,
     text: AnnotatedString,
     style: TextStyle = MaterialTheme.typography.body1,
-    color: Color = style.color
+    color: Color = style.color,
+    onTextSizeFinalized: (textSize: Float) -> Unit
 ) {
     var resizedTextStyle by remember {
         mutableStateOf(style)
@@ -38,6 +40,7 @@ fun AutoResizedText(
         onTextLayout = { result ->
             if (result.didOverflowWidth.not()) {
                 shouldDraw = true
+                onTextSizeFinalized(resizedTextStyle.fontSize.value)
                 return@Text
             }
             if (style.fontSize.isUnspecified) {
