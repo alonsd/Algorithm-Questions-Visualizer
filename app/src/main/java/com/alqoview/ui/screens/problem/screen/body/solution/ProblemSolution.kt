@@ -57,7 +57,6 @@ fun ProblemSolution(solution: String) {
                     val words = line.split(" ")
                     words.forEachIndexed { index, word ->
                         if (line.startsWith("//")) {
-                            // set color of entire line to grey
                             withStyle(style = SpanStyle(color = Color.Gray)) {
                                 append(line)
                             }
@@ -77,7 +76,7 @@ fun ProblemSolution(solution: String) {
                 }
             },
             onTextSizeFinalized = { size ->
-                solutionLineFontSize = 10f
+                solutionLineFontSize = size
             })
     }
 }

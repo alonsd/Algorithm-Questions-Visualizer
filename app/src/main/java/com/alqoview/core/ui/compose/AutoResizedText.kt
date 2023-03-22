@@ -9,7 +9,6 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.isUnspecified
 
 @Composable
@@ -41,8 +40,6 @@ fun AutoResizedText(
         onTextLayout = { result ->
             if (result.didOverflowWidth.not()) {
                 shouldDraw = true
-                val rowHeight = result.getLineBottom(0) - result.getLineTop(0)
-                Log.d("defaultAppDebuger", "textSize: ${resizedTextStyle.fontSize.value}")
                 onTextSizeFinalized(resizedTextStyle.fontSize.value)
                 return@Text
             }
