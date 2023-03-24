@@ -8,7 +8,7 @@ class ProblemsRepositoryImpl @Inject constructor() : ProblemsRepository {
 
     private val problemsList = listOf(
         leetcode1, leetcode2, leetcode3, leetcode4, leetcode9, leetcode13,
-        leetcode14, leetcode20, leetcode21, leetcode26, leetcode27, leetcode28
+        leetcode14, leetcode20, leetcode21, leetcode26, leetcode27, leetcode28, leetcode35
     )
 
     override fun getProblems(): List<AlgorithmicProblem> {
