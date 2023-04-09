@@ -88,7 +88,7 @@ android {
 
 dependencies {
     //AppCompat
-    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
 
     //System UI
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
@@ -97,13 +97,14 @@ dependencies {
     implementation("androidx.window:window:1.0.0")
 
     //Compose
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation("androidx.activity:activity-compose:1.7.0")
     implementation("androidx.compose.animation:animation:1.4.0-alpha05")
     implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha05")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha05")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.0-alpha02")
     implementation("com.google.accompanist:accompanist-pager:0.28.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.2.2")
@@ -115,7 +116,7 @@ dependencies {
     testImplementation("com.google.truth:truth:1.1.3")
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 
     //Ok Http Logging
@@ -133,7 +134,7 @@ dependencies {
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")

@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alqoview.core.extensions.SingleTimeLaunchedEffect
 import com.alqoview.ui.screens.dashboard.body.DashboardScreenBody
 import com.alqoview.ui.screens.dashboard.viewmodel.DashboardViewModel
@@ -28,8 +29,8 @@ fun DashboardScreen(
 ) {
     SetSystemBarsColors()
 
-    val uiState by viewModel.uiState.collectAsState()
-    val uiAction by viewModel.uiAction.collectAsState(initial = NoAction)
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiAction by viewModel.uiAction.collectAsStateWithLifecycle(initialValue = NoAction)
 
     when(val action = uiAction) {
         is NavigateToProblemScreen -> {
