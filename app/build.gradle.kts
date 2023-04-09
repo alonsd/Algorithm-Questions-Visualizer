@@ -93,6 +93,9 @@ dependencies {
     //System UI
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 
+    //Window
+    implementation("androidx.window:window:1.0.0")
+
     //Compose
     implementation("androidx.activity:activity-compose:1.6.1")
     implementation("androidx.compose.animation:animation:1.4.0-alpha05")
