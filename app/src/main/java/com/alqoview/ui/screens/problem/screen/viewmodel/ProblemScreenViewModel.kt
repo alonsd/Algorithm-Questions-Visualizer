@@ -20,12 +20,15 @@ class ProblemScreenViewModel @Inject constructor(
 ) : ViewModel() {
 
     val uiState: StateFlow<UiState> = flow {
-        val problem = problemsRepository.getProblemById(ProblemScreenDestination.argsFrom(savedStateHandle).problemId)
-        problem?.let {
-            emit(UiState(state = UiState.State.DATA, algorithmicProblem = it))
-        } ?: run {
+        val problem = problemsRepository
+            .getProblemById(
+                ProblemScreenDestination.argsFrom(savedStateHandle)
+                    .problemId
+            ) ?: run {
             emit(UiState(state = UiState.State.ERROR))
+            return@flow
         }
+        emit(UiState(state = UiState.State.DATA, algorithmicProblem = problem))
     }.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5_000),
