@@ -24,17 +24,41 @@ val leetcode13 = AlgorithmicProblem(
             "C can be placed before D (500) and M (1000) to make 400 and 900.\n" +
             "Given a roman numeral, convert it to an integer.",
     solution = AlgorithmicProblem.Solution(
-        solutionCode = "",
+        solutionCode = "" +
+                "val romanToIntegerMap = hashMapOf(\n" +
+                "    \"I\" to 1,\n" +
+                "    \"V\" to 5,\n" +
+                "    \"X\" to 10,\n" +
+                "    \"L\" to 50,\n" +
+                "    \"C\" to 100,\n" +
+                "    \"D\" to 500,\n" +
+                "    \"M\" to 1000\n" +
+                ")\n" +
+                "\n" +
+                "fun romanToInt(string: String): Int {\n" +
+                "\n" +
+                "    var result = 0\n" +
+                "    val size = string.toCharArray().size - 1\n" +
+                "    string.forEachIndexed { index, char ->\n" +
+                "        val currentChar = char.toString()\n" +
+                "        if (index + 1 <= size\n" +
+                "            && romanToIntegerMap[currentChar]!! <\n" +
+                "            romanToIntegerMap[string[index + 1].toString()]!!\n" +
+                "        ) {\n" +
+                "            result -= romanToIntegerMap[currentChar]!!\n" +
+                "        } else {\n" +
+                "            result += romanToIntegerMap[currentChar]!!\n" +
+                "        }\n" +
+                "    }\n" +
+                "    return result\n" +
+                "}",
         explanation = AlgorithmicProblem.Solution.Explanation(
-            bestApproach = "",
-            explanationDescription = "",
-            coreConcepts = listOf(
-                AlgorithmicProblem.Solution.Explanation.CoreConcept(
-                    "", ""
-                )
-            ),
-            timeComplexity = "",
-            spaceComplexity = ""
+            bestApproach = "One Pass Hash Map",
+            explanationDescription = "Mapping all roman letters with a hashmap, we can run though the String and search for cases where a" +
+                    " smaller valued letter is followed by a greater one, decreasing the total sum",
+            coreConcepts = emptyList(),
+            timeComplexity = "O(n)",
+            spaceComplexity = "O(1)"
         )
     ),
     examples = listOf(
@@ -57,7 +81,7 @@ val leetcode14 = AlgorithmicProblem(
     problemId = 14,
     questionNumber = 14,
     title = "Longest Common Prefix",
-    problemDescription = "Write a function to find the longest common prefix string amongst an array of strings.\n" +
+    problemDescription = "Write a function to find the longest common prefix string amongst an array of strings." +
             "\n" +
             "If there is no common prefix, return an empty string \"\".",
     solution = AlgorithmicProblem.Solution(

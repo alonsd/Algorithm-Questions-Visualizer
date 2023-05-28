@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    problemsRepository: ProblemsRepository
+    problemsRepository: ProblemsRepository,
 ) : ViewModel() {
 
     val uiState: StateFlow<UiState> = flow {
