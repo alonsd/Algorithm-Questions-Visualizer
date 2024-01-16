@@ -12,7 +12,7 @@ plugins {
 
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     buildFeatures {
         viewBinding = true
         dataBinding = true
@@ -28,14 +28,14 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.0"
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
 
 
     defaultConfig {
         applicationId = "com.alqoview"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -62,25 +62,9 @@ android {
         }
     }
 
-    //Used for compose navigation code generator
-    applicationVariants.all {
-        addJavaSourceFoldersToModel(
-            File(buildDir, "generated/ksp/$name/kotlin")
-        )
-        // There is currently an issue with the below solution:
-        // https://issuetracker.google.com/issues/255915317
-        // For now we use the solution above until ramcosta solves it ☝️
-
-//        kotlin.sourceSets {
-//            getByName(name) {
-//                kotlin.srcDir("build/generated/ksp/$name/kotlin")
-//            }
-//        }
-    }
-
-    packagingOptions {
-        resources {
-            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    androidComponents {
+        onVariants(selector().withBuildType("release")) {
+            it.packaging.resources.excludes.add("META-INF/**")
         }
     }
     namespace = "com.alqoview"
@@ -89,66 +73,66 @@ android {
 
 dependencies {
     //AppCompat
-    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation(libs.appcompat)
 
     //System UI
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
+    implementation(libs.accompanist.systemuicontroller)
 
     //Window
-    implementation("androidx.window:window:1.0.0")
+    implementation(libs.window)
 
     //Compose
-    implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.animation:animation:1.4.0-alpha05")
-    implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha05")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.0-alpha05")
-    implementation("com.google.accompanist:accompanist-pager:0.28.0")
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0-beta01")
+    implementation(libs.activity.compose)
+    implementation(libs.animation)
+    implementation(libs.ui.tooling)
+    implementation(libs.lifecycle.viewmodel.compose)
+    androidTestImplementation(libs.ui.test.junit4)
+    implementation(libs.google.accompanist.pager)
+    implementation(libs.google.accompanist.pager.indicators)
+    implementation(libs.lifecycle.runtime.compose)
 
     //Coil
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation(libs.coil.compose)
 
     //Testing
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    testImplementation("com.google.truth:truth:1.1.3")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.truth)
 
     //Kotlin
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation(libs.core.ktx)
+    implementation(libs.kotlinx.coroutines.core)
 
     //Ok Http Logging
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.7")
+    implementation(libs.logging.interceptor)
 
     //NetworkResponseAdapter
-    implementation("com.github.haroldadmin:NetworkResponseAdapter:4.2.1")
+    implementation(libs.networkResponseAdapter)
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 
     //Material
-    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation(libs.material3)
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation(libs.jetbrains.kotlinx.coroutines.android)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     //Gson
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
 
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    kapt("com.google.dagger:hilt-compiler:2.44.2")
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.dagger.hilt.compiler)
 
     //Compose Destinations
-    implementation("io.github.raamcosta.compose-destinations:animations-core:1.8.33-beta")
-    ksp("io.github.raamcosta.compose-destinations:ksp:1.8.33-beta")
+    implementation(libs.animations.core)
+    ksp(libs.ksp)
 
 }
 
