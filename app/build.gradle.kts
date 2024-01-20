@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 plugins {
     kotlin("android")
     kotlin("kapt")
@@ -28,7 +26,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.2"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
 
 
@@ -82,6 +80,7 @@ dependencies {
     implementation(libs.window)
 
     //Compose
+    implementation(libs.ui)
     implementation(libs.activity.compose)
     implementation(libs.animation)
     implementation(libs.ui.tooling)
