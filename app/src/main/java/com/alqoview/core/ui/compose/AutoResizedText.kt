@@ -1,6 +1,5 @@
 package com.alqoview.core.ui.compose
 
-import android.util.Log
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*

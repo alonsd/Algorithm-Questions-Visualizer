@@ -43,17 +43,18 @@ fun ProblemExplanation(
             color = Color.White
         )
 
-        Text(
-            text = stringResource(R.string.problem_screen_explanation_core_concepts),
-            modifier = Modifier.padding(top = 16.dp),
-            color = Color.White,
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp
-        )
-        explanation.coreConcepts.forEach { concept ->
-            ExplanationCoreConceptItem(concept)
+        if (explanation.coreConcepts.isNotEmpty()) {
+            Text(
+                text = stringResource(R.string.problem_screen_explanation_core_concepts),
+                modifier = Modifier.padding(top = 16.dp),
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp
+            )
+            explanation.coreConcepts.forEach { concept ->
+                ExplanationCoreConceptItem(concept)
+            }
         }
-
         Text(
             text = stringResource(R.string.problem_screen_explanation_explanation),
             modifier = Modifier.padding(top = 16.dp),

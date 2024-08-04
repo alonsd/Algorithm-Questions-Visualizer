@@ -1,11 +1,11 @@
 package com.alqoview.ui.screens.problem.screen.screen
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alqoview.ui.screens.problem.screen.state.ProblemScreenDataState
 import com.alqoview.ui.screens.problem.screen.viewmodel.ProblemScreenViewModel
 import com.ramcosta.composedestinations.annotation.Destination
@@ -20,7 +20,7 @@ fun ProblemScreen(
 ) {
 
 
-    val uiState by viewmodel.uiState.collectAsState()
+    val uiState by viewmodel.uiState.collectAsStateWithLifecycle()
 
     when (uiState.state) {
         ProblemScreenViewModel.UiState.State.DATA -> {
