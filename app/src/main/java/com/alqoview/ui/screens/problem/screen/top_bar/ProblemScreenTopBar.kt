@@ -49,7 +49,7 @@ fun ProblemScreenTopBar(
             },
             containerColor = Color.Transparent,
         ) {
-            ProblemScreenTabs.values().forEachIndexed { index, tabRowItem ->
+            ProblemScreenTabs.entries.forEachIndexed { index, tabRowItem ->
                 Tab(
                     selected = currentPage == index,
                     selectedContentColor = Color.White,
