@@ -19,7 +19,6 @@ fun ProblemScreen(
     viewmodel: ProblemScreenViewModel = hiltViewModel()
 ) {
 
-
     val uiState by viewmodel.uiState.collectAsStateWithLifecycle()
 
     when (uiState.state) {
