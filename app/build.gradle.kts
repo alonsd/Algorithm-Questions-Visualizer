@@ -10,7 +10,7 @@ plugins {
 
 
 android {
-    compileSdk = 34
+    compileSdk = 35
     buildFeatures {
         viewBinding = true
         dataBinding = true
@@ -33,7 +33,7 @@ android {
     defaultConfig {
         applicationId = "com.alqoview"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -85,9 +85,9 @@ dependencies {
     implementation(libs.animation)
     implementation(libs.ui.tooling)
     implementation(libs.lifecycle.viewmodel.compose)
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
     androidTestImplementation(libs.ui.test.junit4)
     implementation(libs.google.accompanist.pager)
     implementation(libs.google.accompanist.pager.indicators)

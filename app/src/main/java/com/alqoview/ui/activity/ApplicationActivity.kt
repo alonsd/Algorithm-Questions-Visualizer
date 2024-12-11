@@ -11,14 +11,12 @@ import androidx.window.layout.WindowMetrics
 import androidx.window.layout.WindowMetricsCalculator
 import com.alqoview.core.extensions.setAqvContent
 import com.alqoview.ui.screens.NavGraphs
-import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import dagger.hilt.android.AndroidEntryPoint
 import rootNavGraphDefaultAnimations
 
 
-@ExperimentalMaterialNavigationApi
 @ExperimentalAnimationApi
 @ExperimentalComposeUiApi
 @AndroidEntryPoint
